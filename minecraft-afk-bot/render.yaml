@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: minecraft-afk-bot
+    runtime: node
+    plan: free
+    rootDir: minecraft-afk-bot
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MC_HOST
+        sync: false
+      - key: MC_PORT
+        value: "25565"
+      - key: MC_USERNAME
+        value: "ServerAFK"
+      - key: MC_VERSION
+        sync: false
+      - key: MC_AUTH
+        value: "offline"
+      - key: ACTIVITY_ENABLED
+        value: "false"
+      - key: ACTIVITY_MIN_SECONDS
+        value: "45"
+      - key: ACTIVITY_MAX_SECONDS
+        value: "120"
+      - key: RECONNECT_MIN_SECONDS
+        value: "10"
+      - key: RECONNECT_MAX_SECONDS
+        value: "30"
